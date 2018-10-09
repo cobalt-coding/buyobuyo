@@ -14,7 +14,7 @@ public class GenerateColor : MonoBehaviour {
 
     
     //The path where all the puyo sprites are
-    private string path = "Sprites/Puyos";
+    private string path = "Sprites/BetterPuyos";
 
     //Access the sprite renderer in the unity object
     private SpriteRenderer spriteRenderer;
