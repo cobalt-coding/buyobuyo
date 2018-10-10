@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0.75
-  puyo: {fileID: 1972039930284194, guid: 252613d4d597dd14185783e3c0a5c847, type: 2}
+  puyoPrefab: {fileID: 1972039930284194, guid: 252613d4d597dd14185783e3c0a5c847, type: 2}
 --- !u!212 &212484582261745350
 SpriteRenderer:
   m_ObjectHideFlags: 1

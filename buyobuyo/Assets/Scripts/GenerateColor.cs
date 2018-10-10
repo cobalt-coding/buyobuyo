@@ -28,7 +28,7 @@ public class GenerateColor : MonoBehaviour {
         //Grabs the sprite renderer and randomizes a sprite
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprites[(int)Mathf.Floor(Random.value * sprites.Length)];
-
+        
 	}
 	
 	// Update is called once per frame
