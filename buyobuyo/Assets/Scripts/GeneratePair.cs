@@ -29,7 +29,7 @@ public class GeneratePair : MonoBehaviour {
 
     //Angle which the second puyo is placed at
     private float angle = Mathf.Deg2Rad*270;
-
+    
 	// Use this for initialization
 	void Start () {
 
@@ -77,8 +77,14 @@ public class GeneratePair : MonoBehaviour {
 
 	}
 
-    void UpdateAngle()
+    //Rotates the puyo pair, potential inputs are "clockwise" and "counter-clockwise"
+    void RotatePair(string direction)
     {
+        if (direction != "clockwise" || direction != "counter-clockwise")
+        {
+            Debug.Log("Rotate direction has to be clockwise or counter-clockwise!");
+            return;
+        }
 
     }
 
