@@ -10,7 +10,9 @@ public class GeneratePair : MonoBehaviour {
      * Code is not yet complete
      * 
      * TODO:
-     * -Establish the four "positions" that a puyo pair can be in, and rotate accordingly to input
+     * -Establish the four "positions" that a puyo pair can be in (DONE), and rotate accordingly to input
+     * -Animate rotations
+     * -Feed values into PuyoGrid accurately
      * 
      * **/
     
@@ -53,9 +55,9 @@ public class GeneratePair : MonoBehaviour {
         //Runs every 40 frames
         if (Time.frameCount%40 == 0)
         {
-            
+
             //Loops through the potential rotation and changes the current rotation using those values
-            for (int i = 0; i < potentialRotations.Length; i++)
+            /*for (int i = 0; i < potentialRotations.Length; i++)
             {
                 if (rotation == potentialRotations[i])
                 {
@@ -63,7 +65,9 @@ public class GeneratePair : MonoBehaviour {
                     angle -= Mathf.PI / 2;
                     break;
                 }
-            }
+            }*/
+
+            RotatePair("counter-clockwise");
 
             //Calculates the position of the second puyo using trig
             Vector3 puyoPosition = new Vector3(thisPos.position.x + Mathf.Cos(angle)*offset, thisPos.position.y + Mathf.Sin(angle)*offset, thisPos.position.z);
@@ -80,10 +84,37 @@ public class GeneratePair : MonoBehaviour {
     //Rotates the puyo pair, potential inputs are "clockwise" and "counter-clockwise"
     void RotatePair(string direction)
     {
-        if (direction != "clockwise" || direction != "counter-clockwise")
+        if (direction != "clockwise" && direction != "counter-clockwise")
         {
             Debug.Log("Rotate direction has to be clockwise or counter-clockwise!");
             return;
+        }
+
+        bool isClockwise = (direction == "clockwise"?true:false);
+
+        if (isClockwise)
+        {
+            for (int i = 0; i < potentialRotations.Length; i++)
+            {
+                if (rotation == potentialRotations[i])
+                {
+                    rotation = potentialRotations[(i + 1 > 3) ? 0 : i + 1];
+                    angle -= Mathf.PI / 2;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < potentialRotations.Length; i++)
+            {
+                if (rotation == potentialRotations[i])
+                {
+                    rotation = potentialRotations[(i - 1 < 0) ? 3 : i - 1];
+                    angle += Mathf.PI / 2;
+                    break;
+                }
+            }
         }
 
     }
